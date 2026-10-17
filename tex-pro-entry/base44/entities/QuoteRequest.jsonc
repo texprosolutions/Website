@@ -1,0 +1,70 @@
+{
+  "name": "QuoteRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "minLength": 2
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone"
+    },
+    "project_type": {
+      "type": "string",
+      "title": "Project Type",
+      "enum": [
+        "Residential",
+        "Commercial",
+        "Industrial",
+        "Loading Dock",
+        "Other"
+      ]
+    },
+    "service": {
+      "type": "string",
+      "title": "Service",
+      "enum": [
+        "Overhead Door",
+        "Loading Dock",
+        "Commercial Project",
+        "Custom / Other"
+      ]
+    },
+    "project_details": {
+      "type": "string",
+      "title": "Project Details",
+      "minLength": 10
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "maxLength": 1000
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "new",
+        "contacted",
+        "quoted",
+        "won",
+        "archived"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "project_type",
+    "service",
+    "project_details"
+  ]
+}

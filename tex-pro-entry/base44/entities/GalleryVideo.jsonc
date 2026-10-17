@@ -1,0 +1,71 @@
+{
+  "name": "GalleryVideo",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "minLength": 2
+    },
+    "location": {
+      "type": "string",
+      "title": "Location"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "Residential",
+        "Commercial",
+        "Gates",
+        "Storage Facilities",
+        "Metal Buildings"
+      ],
+      "default": "Residential"
+    },
+    "year": {
+      "type": "string",
+      "title": "Year"
+    },
+    "video_url": {
+      "type": "string",
+      "title": "Video URL"
+    },
+    "thumbnail_url": {
+      "type": "string",
+      "title": "Thumbnail URL"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "title": "Featured",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "video_url",
+    "category"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

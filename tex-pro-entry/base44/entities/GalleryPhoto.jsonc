@@ -1,0 +1,54 @@
+{
+  "name": "GalleryPhoto",
+  "type": "object",
+  "properties": {
+    "imageUrl": {
+      "type": "string",
+      "title": "Image URL",
+      "minLength": 2
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "Residential",
+        "Commercial",
+        "Gates",
+        "Storage Facilities",
+        "Metal Buildings"
+      ],
+      "default": "Residential"
+    },
+    "sortOrder": {
+      "type": "number",
+      "title": "Sort Order"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "imageUrl",
+    "category"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

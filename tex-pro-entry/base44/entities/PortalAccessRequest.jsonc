@@ -1,0 +1,77 @@
+{
+  "name": "PortalAccessRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Full Name",
+      "minLength": 2
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone Number"
+    },
+    "company": {
+      "type": "string",
+      "title": "Company/Business Name"
+    },
+    "role": {
+      "type": "string",
+      "title": "Role",
+      "enum": [
+        "Customer",
+        "Supplier",
+        "Employee"
+      ],
+      "default": "Customer"
+    },
+    "reason": {
+      "type": "string",
+      "title": "Reason for Access"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "maxLength": 1000
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "pending",
+        "approved",
+        "denied",
+        "granted"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "phone",
+    "reason"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
